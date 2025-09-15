@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Repository Viewer</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>GitHub Repository Viewer</h1>
+  <input type="text" id="usernameInput" placeholder="Enter GitHub Username">
+  <button onclick="getRepositories()">Get Repositories</button>
+  <div id="repositoryContainer"></div>
+
+  <script>
+    function getRepositories() {
+      var username = $("#usernameInput").val();
+      var url = "https://api.github.com/users/" + username + "/repos";
+
+      $.getJSON(url, function(data) {
+        var repositories = data;
+        var repositoryList = "";
+
+        repositories.forEach(function(repo) {
+          repositoryList += `
+            <div>
+              <h2>${repo.name}</h2>
+              <p>Owner: ${repo.owner.login}</p>
+              <p>Description: ${repo.description}</p>
+              <p>Language: ${repo.language}</p>
+              <p>Stars: ${repo.stargazers_count}</p>
+              <p>Forks: ${repo.forks_count}</p>
+            </div>
+          `;
+        });
+
+        $("#repositoryContainer").html(repositoryList);
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        var errorHtml = `
+          <p>Error: ${jqXHR.status} - ${textStatus}</p>
+          <p>${errorThrown}</p>
+        `;
+
+        $("#repositoryContainer").html(errorHtml);
+      });
+    }
+  </script>
+</body>
+</html>
