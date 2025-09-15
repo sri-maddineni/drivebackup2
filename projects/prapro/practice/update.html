@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+   .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    .body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+  margin-right: 20px;
+}
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>KISAN RAJ</h1>
+    </div>
+	<div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="#news">Stakeholders</a>
+        <a href="#contact">Lot items</a>
+        <div class="topnav-right">
+          <a href="login.html" >Login</a>
+          <a href="register.html" class="active other">Register</a>
+          
+        </div>
+      </div>
+
+      
+      
+    <div class="container">
+        <h2>Update details</h2>
+        <form action="loggedin.html" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="{{ account['username'] }}"" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ account['email'] }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" value="{{ account['password'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Role:</label>
+                <input type="text" id="username" name="username" placeholder="Farmer or middlemen or buyer" value="{{ account['organization'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Address</label>
+                <input type="text" id="username" name="username" placeholder="" value="{{ account['address'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">City</label>
+                <input type="text" id="username" name="username" placeholder="" value="{{ account['city'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">State</label>
+                <input type="text" id="username" name="username" placeholder="" value="{{ account['state'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Pincode</label>
+                <input type="text" id="username" name="username" placeholder="" value="{{ account['postalcode'] }}" required>
+            </div>
+            
+            <button type="submit" >Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!--Store this code in 'login.html' file inside the 'templates' folder-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Login </title>
+        <style>
+            .header {
+                     text-align: center;
+                     padding: 20px;
+                     background-color: #333;
+                     color: #fff;
+                 }
+         body {
+           margin: 0;
+           font-family: Arial, Helvetica, sans-serif;
+         }
+         
+         .topnav {
+           overflow: hidden;
+           background-color: #333;
+         }
+         
+         .topnav a {
+           float: left;
+           color: #f2f2f2;
+           text-align: center;
+           padding: 14px 16px;
+           text-decoration: none;
+           font-size: 17px;
+         }
+         
+         .topnav a:hover {
+           background-color: #ddd;
+           color: black;
+         }
+         
+         .topnav a.active {
+           background-color: #04AA6D;
+           color: white;
+         }
+         
+         .topnav-right {
+           float: right;
+           margin-right: 20px;
+         }
+         
+         
+         </style>
+		
+	</head>
+	<body>
+        <div class="header">
+            <h1>KISAN RAJ</h1>
+        </div>
+        <div class="topnav">
+            <a class="active" href="{{url_for('index')}}">Home</a>
+            <a href="#news">Stakeholders</a>
+            <a href="#contact">Lot items</a>
+            <div class="topnav-right">
+              
+              <a href="{{ url_for('register')}}">Register</a>
+              
+            </div>
+      </div>
+		<div class="logincontent" align="center">
+			<div class="logintop">
+				<h1>Login</h1>
+			</div></br></br></br></br>
+			<div class="loginbottom">
+			<form action="{{ url_for('login')}}" method="post" autocomplete="off">
+			<div class="msg">{{ msg }}</div>
+			<input type="text" name="username" placeholder="Enter Your Username" class="textbox" id="username" required></br></br>
+			<input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required></br></br></br>
+			<input type="submit" class="btn" value="Login">
+			</form></br></br>
+			<p class="worddark">New to this page? <a class="worddark" href="{{ url_for('register')}}">Register here</a></p>
+			</div>
+		</div>
+	</body>
+</html>
